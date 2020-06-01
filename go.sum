@@ -1,6 +1,4 @@
-go4.org v0.0.0-20200411211856-f5505b9728dd h1:BNJlw5kRTzdmyfh5U8F93HA2OwkP7ZGwA51eJ/0wKOU=
-go4.org/mem v0.0.0-20200417192849-3dbcd07079b8 h1:/5y0mpdjsKpVD2MEXrTgz4qmVBqs9TxGrDGVV12l1g8=
-go4.org/mem v0.0.0-20200417192849-3dbcd07079b8/go.mod h1:NEYvpHWemiG/E5UWfaN5QAIGZeT1sa0Z2UNk6oeMb/k=
-inet.af v0.0.0-20181218191229-53da77bc832c h1:U3RoiyEF5b3Y1SVL6NNvpkgqUz2qS3a0OJh9kpSCN04=
+go4.org/mem v0.0.0-20200601023850-d8ee1dfa5518 h1:AA3bSGklCgkrqIGnvL4894oa/2K9ltE0RejXh8CgyvA=
+go4.org/mem v0.0.0-20200601023850-d8ee1dfa5518/go.mod h1:NEYvpHWemiG/E5UWfaN5QAIGZeT1sa0Z2UNk6oeMb/k=
 inet.af/netaddr v0.0.0-20200430175045-5aaf2097c7fc h1:We3b/z+7i9LV4Ls0yWve5vYIlnAPSPeqxKVgZseRDBs=
 inet.af/netaddr v0.0.0-20200430175045-5aaf2097c7fc/go.mod h1:qqYzz/2whtrbWJvt+DNWQyvekNN4ePQZcg2xc2/Yjww=

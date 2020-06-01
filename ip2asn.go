@@ -86,7 +86,7 @@ func OpenReader(r io.Reader) (*Map, error) {
 		if string(desc) == "Not routed" {
 			continue
 		}
-		as64, err := mem.B(asnB).ParseInt(10, 64)
+		as64, err := mem.ParseInt(mem.B(asnB), 10, 64)
 		if err != nil {
 			return nil, fmt.Errorf("bogus ASN %q for line %q", asnB, line)
 		}
