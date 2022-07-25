@@ -27,11 +27,11 @@ import (
 	"compress/gzip"
 	"fmt"
 	"io"
+	"net/netip"
 	"os"
 	"sort"
 
 	"go4.org/mem"
-	"inet.af/netaddr"
 )
 
 type Map struct {
@@ -41,7 +41,7 @@ type Map struct {
 }
 
 type rec struct {
-	startIP, endIP netaddr.IP
+	startIP, endIP netip.Addr
 	asn            int
 }
 
@@ -96,11 +96,11 @@ func OpenReader(r io.Reader) (*Map, error) {
 			m.asCountry[as] = string(country)
 		}
 
-		startIP, err := netaddr.ParseIP(string(startIPB)) // TODO: add ParseIPBytes
+		startIP, err := netip.ParseAddr(string(startIPB)) // TODO: add ParseIPBytes
 		if err != nil {
 			return nil, fmt.Errorf("bogus IP %q for line %q", startIPB, line)
 		}
-		endIP, err := netaddr.ParseIP(string(endIPB)) // TODO: add ParseIPBytes
+		endIP, err := netip.ParseAddr(string(endIPB)) // TODO: add ParseIPBytes
 		if err != nil {
 			return nil, fmt.Errorf("bogus IP %q for line %q", endIPB, line)
 		}
@@ -131,7 +131,7 @@ func (m *Map) ASName(as int) string    { return m.asName[as] }
 func (m *Map) ASCountry(as int) string { return m.asCountry[as] }
 
 // ASofIP returns 0 on unknown.
-func (m *Map) ASofIP(ip netaddr.IP) int {
+func (m *Map) ASofIP(ip netip.Addr) int {
 	cand := sort.Search(len(m.recs), func(i int) bool {
 		return ip.Less(m.recs[i].startIP)
 	})
@@ -140,7 +140,7 @@ func (m *Map) ASofIP(ip netaddr.IP) int {
 
 // recIndexHasIP returns the AS number of m.rec[i] if i is in range and
 // the record contains the given IP address.
-func (m *Map) recIndexHasIP(i int, ip netaddr.IP) (as int) {
+func (m *Map) recIndexHasIP(i int, ip netip.Addr) (as int) {
 	if i < 0 {
 		return 0
 	}

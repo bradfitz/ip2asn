@@ -1,4 +1,2 @@
 go4.org/mem v0.0.0-20200601023850-d8ee1dfa5518 h1:AA3bSGklCgkrqIGnvL4894oa/2K9ltE0RejXh8CgyvA=
 go4.org/mem v0.0.0-20200601023850-d8ee1dfa5518/go.mod h1:NEYvpHWemiG/E5UWfaN5QAIGZeT1sa0Z2UNk6oeMb/k=
-inet.af/netaddr v0.0.0-20200430175045-5aaf2097c7fc h1:We3b/z+7i9LV4Ls0yWve5vYIlnAPSPeqxKVgZseRDBs=
-inet.af/netaddr v0.0.0-20200430175045-5aaf2097c7fc/go.mod h1:qqYzz/2whtrbWJvt+DNWQyvekNN4ePQZcg2xc2/Yjww=

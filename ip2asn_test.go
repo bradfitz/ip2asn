@@ -3,10 +3,9 @@ package ip2asn
 import (
 	"flag"
 	"net/http"
+	"net/netip"
 	"strings"
 	"testing"
-
-	"inet.af/netaddr"
 )
 
 func TestParse(t *testing.T) {
@@ -25,7 +24,7 @@ func TestParse(t *testing.T) {
 		{"2c0f:ffc8:ffff:ffff:ffff:ffff:ffff:fffe", 22355},
 	}
 	for _, tt := range tests {
-		ip, err := netaddr.ParseIP(tt.ip)
+		ip, err := netip.ParseAddr(tt.ip)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -56,7 +55,7 @@ func TestParseNetwork(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	ip, _ := netaddr.ParseIP("8.8.8.8")
+	ip, _ := netip.ParseAddr("8.8.8.8")
 	got := m.ASofIP(ip)
 	if got != googASN {
 		t.Errorf("got %v; want %v", got, googASN)
@@ -73,7 +72,7 @@ func TestParseFile(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	ip, _ := netaddr.ParseIP("8.8.8.8")
+	ip, _ := netip.ParseAddr("8.8.8.8")
 	got := m.ASofIP(ip)
 	if got != googASN {
 		t.Errorf("got %v; want %v", got, googASN)
